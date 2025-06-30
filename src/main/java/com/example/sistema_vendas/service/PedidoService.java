@@ -35,6 +35,12 @@ public class PedidoService {
         pedido.setCliente(cliente);
         pedido.setData(LocalDateTime.now());
 
+        if (pedidoDTO.getCodigo() != null) {
+            pedido.setCodigo(pedidoDTO.getCodigo());
+        } else {
+            pedido.setCodigo("TEMP");
+        }
+
         BigDecimal total = BigDecimal.ZERO;
         List<ItemPedido> itens = new ArrayList<>();
 
@@ -66,6 +72,7 @@ public class PedidoService {
         PedidoDTO dto = new PedidoDTO();
         dto.setId(pedido.getId());
         dto.setClienteId(pedido.getCliente().getId());
+        dto.setCodigo(pedido.getCodigo());
         dto.setData(pedido.getData());
         dto.setValorTotal(pedido.getValorTotal());
 

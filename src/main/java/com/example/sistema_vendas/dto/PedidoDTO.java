@@ -7,11 +7,11 @@ import java.util.List;
 public class PedidoDTO {
     private Long id;
     private Long clienteId;
+    private String codigo;
     private LocalDateTime data;
     private BigDecimal valorTotal;
     private List<ItemPedidoDTO> itens;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -26,6 +26,14 @@ public class PedidoDTO {
 
     public void setClienteId(Long clienteId) {
         this.clienteId = clienteId;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public LocalDateTime getData() {
@@ -52,12 +60,14 @@ public class PedidoDTO {
         this.itens = itens;
     }
 
-
-    public PedidoDTO() {}
-
-    public PedidoDTO(Long clienteId, List<ItemPedidoDTO> itens) {
+    public PedidoDTO(Long id, Long clienteId, String codigo, LocalDateTime data, BigDecimal valorTotal, List<ItemPedidoDTO> itens) {
+        this.id = id;
         this.clienteId = clienteId;
+        this.codigo = codigo;
+        this.data = data;
+        this.valorTotal = valorTotal;
         this.itens = itens;
     }
 
+    public PedidoDTO(){}
 }
